@@ -18,13 +18,14 @@ java {
 }
 
 dependencies {
-    // 프로젝트 개발에 필요한 의존성을 선언 하는 곳
     implementation('org.springframework.boot:spring-boot-starter-web')
-    // 테스트
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')  // 추가
+    implementation('com.h2database:h2')  // 추가
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-//    testImplementation platform('org.junit:junit-bom:5.10.0')
-//    testImplementation 'org.junit.jupiter:junit-jupiter'
-//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
