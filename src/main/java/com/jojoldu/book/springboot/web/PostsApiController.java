@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 
 @RestController
@@ -44,6 +46,10 @@ public class PostsApiController {
 
         return postsService.findById(id);
 
+    }
+    @GetMapping("/api/v1/posts")
+    public List<PostsResponseDto> findAll() {
+        return postsService.findAllDesc();  // 위에서 만든 메서드 호출
     }
 
     @DeleteMapping("/api/v1/posts/{id}")
