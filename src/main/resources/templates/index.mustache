@@ -26,6 +26,13 @@
                 <td>{{modifiedDate}}</td>
             </tr>
         {{/posts}}
+        {{^posts}}
+            <tr>
+                <td colspan="4" class="text-center">
+                    등록된 게시글이 없습니다. 새 글을 작성해보세요!
+                </td>
+            </tr>
+        {{/posts}}
         </tbody>
     </table>
 </div>
