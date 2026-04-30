@@ -17,7 +17,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http
                 .csrf(csrf -> csrf.disable())
                 .headers(headers ->
@@ -32,12 +31,11 @@ public class SecurityConfig {
                         logout.logoutSuccessUrl("/")
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl("/", true)  // ← 추가
+                        .defaultSuccessUrl("/", true)
                         .userInfoEndpoint(userInfo ->
                                 userInfo.userService(customOAuth2UserService)
                         )
                 );
-
         return http.build();
     }
 }
